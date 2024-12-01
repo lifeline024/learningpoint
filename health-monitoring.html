@@ -13,7 +13,8 @@
     <p><strong>Project Overview:</strong></p>
     <p>This project involves the development of a Health Monitoring System using IoT. It tracks essential health parameters such as heart rate, SpO2 (oxygen saturation), and body temperature using sensors. The system uses a NodeMCU ESP8266 to collect and display the data on an LCD screen in real-time.</p>
 
-    <img src="https://shorturl.at/wgm5a" alt="Health Monitoring System">
+    <!-- First Image -->
+    <img src="https://shorturl.at/wgm5a" alt="Health Monitoring System" style="max-width: 100%; display: block; margin: 10px auto;">
 
     <p><strong>Technologies Used:</strong></p>
     <ul>
@@ -34,7 +35,11 @@
 
     <p><strong>Project Video:</strong></p>
     <div style="text-align: center;">
-        <iframe width="560" height="315" src="https://youtu.be/CusJRCPENdc?si=oaXu5pNobE1HNhsO" title="Health Monitoring System Overview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CusJRCPENdc" 
+            title="Health Monitoring System Overview" frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
     </div>
 
     <p><strong>Project Challenges:</strong></p>
@@ -54,15 +59,125 @@
         <li>Improving accuracy with advanced sensors and algorithms.</li>
     </ul>
 
-    <img src="https://shorturl.at/CWmLK" alt="NodeMCU ESP8266 Setup">
 
+    <h3>Code for this Project</h3>
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 10px;">
+        <!-- Code Display -->
+        <textarea id="code-content" readonly style="width: 90%; height: 200px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: monospace;">
+            //Prateek
+            //https://justdoelectronics.com
+            //https://www.youtube.com/c/JustDoElectronics/videos
+            
+            #include <Wire.h>
+            #include "MAX30100_PulseOximeter.h"
+            #define BLYNK_PRINT Serial
+            #include <Blynk.h>
+            #include <WiFi.h>
+            #include <BlynkSimpleEsp32.h>
+            #include <OneWire.h>
+            #include <DallasTemperature.h>
+            #include "DHT.h"
+            #define DHTTYPE DHT11
+            #define REPORTING_PERIOD_MS 1000
+            #define DS18B20 5
+            
+            char auth[] = "G9nCH4W7AWUwviplzwpGLleH0fOdXF9_";
+            char ssid[] = "justdoelectronics";
+            char pass[] = "123456789";
+            PulseOximeter pox;
+            
+            uint8_t DHTPin = 18;
+            DHT dht(DHTPin, DHTTYPE);
+            float Temperature;
+            float Humidity;
+            float bodytemperature;
+            float BPM, SpO2;
+            uint32_t tsLastReport = 0;
+            
+            OneWire oneWire(DS18B20);
+            DallasTemperature sensors(&oneWire);
+            
+            void onBeatDetected() {
+              Serial.println("Beat Detected!");
+            }
+            
+            void setup() {
+              Serial.begin(115200);
+              pinMode(19, OUTPUT);
+              pinMode(DHTPin, INPUT);
+              dht.begin();
+              Blynk.begin(auth, ssid, pass);
+              Serial.print("Initializing Pulse Oximeter..");
+            
+              if (!pox.begin()) {
+                Serial.println("FAILED");
+                for (;;)
+                  ;
+              } else {
+                Serial.println("SUCCESS");
+                pox.setOnBeatDetectedCallback(onBeatDetected);
+              }
+              pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
+            }
+            
+            void loop() {
+              pox.update();
+              Blynk.run();
+              Temperature = dht.readTemperature(); 
+              Humidity = dht.readHumidity();       
+              BPM = pox.getHeartRate();
+              SpO2 = pox.getSpO2();
+              bodytemperature = sensors.getTempCByIndex(0);
+            
+              if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+                Serial.print("Heart rate:");
+                Serial.print(BPM);
+                Serial.print(" bpm / SpO2:");
+                Serial.print(SpO2);
+                Serial.println(" %");
+                Serial.print("Room Temperature: ");
+                Serial.print(Temperature);
+                Serial.println("°C");
+                Serial.print("Room Humidity: ");
+                Serial.print(Humidity);
+                Serial.println("%");
+                Serial.print("Body Temperature: ");
+                Serial.print(bodytemperature);
+                Serial.println("°C");
+                Blynk.virtualWrite(V3, Temperature);
+                Blynk.virtualWrite(V4, Humidity);
+                Blynk.virtualWrite(V5, BPM);
+                Blynk.virtualWrite(V6, SpO2);
+                Blynk.virtualWrite(V7, bodytemperature);
+            
+                tsLastReport = millis();
+              }
+            }
+        </textarea>
+
+        <!-- Copy Button -->
+        <button id="copy-btn" style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Copy
+        </button>
+    </div>
+</section>
     <!-- Print Button -->
-    <button id="print-btn">Print</button>
+    <button id="print-btn" style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; margin: 20px auto;">Print</button>
 </section>
 
+<section id="code-section" style="margin-top: 30px; text-align: center;">
 <script>
+    // Copy Code functionality
+    document.getElementById("copy-btn").addEventListener("click", function () {
+        const codeContent = document.getElementById("code-content");
+        codeContent.select();
+        codeContent.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+        alert("Code copied to clipboard!");
+    });
+
     // Print functionality
-    document.getElementById("print-btn").addEventListener("click", function() {
+    document.getElementById("print-btn").addEventListener("click", function () {
         window.print(); // Triggers the print dialog
     });
 </script>
