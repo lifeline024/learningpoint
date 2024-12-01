@@ -1,0 +1,126 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Project Info Section */
+#project-info {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Section Headings (strong text) */
+strong {
+    font-size: 1.1rem;
+    color: #007bff;
+}
+
+/* Paragraph and List Styles */
+p, ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Image Styling */
+img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Video Embed Styling */
+iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #project-info {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p, ul {
+        font-size: 0.9rem;
+    }
+}
+/* Print Styles */
+@media print {
+    body {
+        background: url('987.jpg') no-repeat center center fixed; /* Make sure the image path is correct */
+        background-size: cover; /* Ensure the image covers the page */
+        background-attachment: fixed; /* Keeps the background fixed */
+        color: #000; /* Set text color to black */
+    }
+
+    #project-info {
+        max-width: 100%;
+        padding: 10px;
+        box-shadow: none; /* Remove shadow for printing */
+    }
+
+    button {
+        display: none; /* Hide button during print */
+    }
+
+    img {
+        max-width: 100%; /* Ensure images are responsive for print */
+    }
+
+    iframe {
+        display: none; /* Hide iframe video for print */
+    }
+}

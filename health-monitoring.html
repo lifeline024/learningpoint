@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Monitoring System</title>
+    <link rel="stylesheet" href="health.css">
+</head>
+<body>
+<section id="project-info">
+    <h3>Health Monitoring System</h3>
+    
+    <p><strong>Project Overview:</strong></p>
+    <p>This project involves the development of a Health Monitoring System using IoT. It tracks essential health parameters such as heart rate, SpO2 (oxygen saturation), and body temperature using sensors. The system uses a NodeMCU ESP8266 to collect and display the data on an LCD screen in real-time.</p>
+
+    <img src="https://via.placeholder.com/800x400" alt="Health Monitoring System">
+
+    <p><strong>Technologies Used:</strong></p>
+    <ul>
+        <li>NodeMCU ESP8266</li>
+        <li>MAX30100 (Heart Rate & SpO2 Sensor)</li>
+        <li>DS18B20 (Temperature Sensor)</li>
+        <li>LCD Display</li>
+        <li>Arduino IDE</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+        <li>Real-time health data display on an LCD screen.</li>
+        <li>Heart rate and SpO2 monitoring for better health tracking.</li>
+        <li>Temperature monitoring for early warning of fever or hypothermia.</li>
+        <li>Simple user interface for ease of use.</li>
+    </ul>
+
+    <p><strong>Project Video:</strong></p>
+    <div style="text-align: center;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Health Monitoring System Overview" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <p><strong>Project Challenges:</strong></p>
+    <ul>
+        <li>Integration of different sensors with the NodeMCU.</li>
+        <li>Ensuring accurate sensor readings despite environmental noise.</li>
+        <li>Optimizing power consumption for long-term use on battery power.</li>
+    </ul>
+
+    <p><strong>Outcome:</strong></p>
+    <p>This health monitoring system provides a reliable and easy-to-use solution for tracking key health metrics. It can be used for personal health tracking or integrated into larger healthcare systems for continuous monitoring.</p>
+
+    <p><strong>Future Work:</strong></p>
+    <ul>
+        <li>Integrating wireless communication (e.g., Bluetooth, Wi-Fi) for remote data monitoring.</li>
+        <li>Adding data storage for historical health tracking.</li>
+        <li>Improving accuracy with advanced sensors and algorithms.</li>
+    </ul>
+
+    <img src="https://via.placeholder.com/800x400" alt="NodeMCU ESP8266 Setup">
+
+    <!-- Print Button -->
+    <button id="print-btn">Print</button>
+</section>
+
+<script>
+    // Print functionality
+    document.getElementById("print-btn").addEventListener("click", function() {
+        window.print(); // Triggers the print dialog
+    });
+</script>
+</body>
+</html>
