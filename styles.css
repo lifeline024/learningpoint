@@ -24,51 +24,49 @@ header {
 }
 
 .logo img {
-    width: 59px; /* Set the desired width */
-    height: 59px; /* Set the desired height */
-    border-radius: 50%; /* Makes it circular */
-    overflow: hidden; /* Ensures the content fits within the circle */
-    object-fit: cover; /* Ensures the image is properly scaled */
-    border: 2px solid #ccc; /* Optional: Adds a border around the circle *
+    width: 59px;
+    height: 59px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
 
-nnav {
-    background-color: #333; /* Dark background for the navbar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+nav {
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-    list-style: none; /* Remove default list styles */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex; /* Display items in a row */
-    justify-content: space-around; /* Space items evenly */
-    align-items: center; /* Center items vertically */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 nav ul li {
-    margin: 5px; /* Remove margin from list items */
+    margin: 5px;
 }
 
 nav ul li a {
-    color: #fff; /* White text color */
-    text-decoration: none; /* Remove underline */
-    padding: 15px 20px; /* Add padding for clickable area */
-    transition: background-color 0.3s ease; /* Smooth transition for hover */
-    border-radius: 5px; /* Rounded corners */
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    /* background-color: #007BFF; Change background on hover */
-    color: #fff; /* Keep text white on hover */
+    color: #fff;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Stack items vertically on small screens */
+        flex-direction: column;
     }
 }
-
 
 main {
     padding: 2rem;
@@ -95,52 +93,45 @@ section {
 .card h3 {
     margin: 0.5rem 0;
 }
-.card-container{
-    outline: 2px salmon;
+
+.card-container {
+    outline: 2px solid salmon;
 }
 
-.card:hover{
-    /* box-shadow: 0 0 20px rgba(0, 0, 0) */
-    /* background-color: #007bff; */
-    transition:background-color 0.3s ease;
+.card:hover {
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #ff5722; /* Set your desired hover color */
-    color: #fff; /* Optional: change text color on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: #ff5722;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
 
-#projects > h2,
-#courses > h2 {
+#projects > h2, #courses > h2 {
     font-size: 2rem;
     font-weight: bold;
-    color: #FF5733; /* Example: orange-red color */
+    color: #FF5733;
     text-align: center;
-    border-bottom: 2px solid #FF5733; /* Optional: adds an underline */
-    margin-bottom: 20px; /* Adds spacing below the heading */
+    border-bottom: 2px solid #FF5733;
+    margin-bottom: 20px;
 }
 
-
-/* Gradient background for project subject names */
 .project-category h3 {
     cursor: pointer;
-    color: whitesmoke; /* Soft Peach */
+    color: whitesmoke;
     margin: 1rem 0;
     font-size: 1.5rem;
-    text-align: left; /* Align text to the left */
-    padding: 0.5rem 1rem; /* Add some padding on the left and right */
+    text-align: left;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     background: linear-gradient(135deg, #D500F9, #FF4081);
     transition: background 0.3s, color 0.3s;
 }
 
-
 .project-category h3:hover {
     background: linear-gradient(135deg, #009688, #00bcd4);
-    color: #dcdcdc; /* Light Gray */
-
-
+    color: #dcdcdc;
 }
 
 .about-info {
@@ -169,34 +160,12 @@ footer {
     width: 100%;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
     .card-container {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: 1fr;
     }
 }
 
-/* About Section Styling */
-.about-section {
-    padding: 50px;
-    background: linear-gradient(135deg, #f9f9f9, #e9e9e9);
-    text-align: center;
-}
-
-.about-section h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.about-info {
-    max-width: 800px;
-    margin: 0 auto;
-    color: #555;
-    line-height: 1.6;
-    text-align: left;
-}
-/* About Section Styling */
 .about-section {
     padding: 60px 20px;
     background: linear-gradient(135deg, #e0eafc, #cfdef3);
@@ -205,11 +174,9 @@ footer {
     overflow: hidden;
 }
 
-.about-section::before {
+.about-section::before, .about-section::after {
     content: "";
     position: absolute;
-    top: -50px;
-    right: -50px;
     width: 300px;
     height: 300px;
     background: rgba(255, 255, 255, 0.2);
@@ -217,16 +184,14 @@ footer {
     filter: blur(100px);
 }
 
+.about-section::before {
+    top: -50px;
+    right: -50px;
+}
+
 .about-section::after {
-    content: "";
-    position: absolute;
     bottom: -50px;
     left: -50px;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    filter: blur(100px);
 }
 
 .about-section h2 {
@@ -236,21 +201,19 @@ footer {
     font-weight: bold;
 }
 
-
-/* About Card Styling for Single Profile */
 .about-card {
     display: flex;
     align-items: center;
     background: #fff;
     border-radius: 10px;
-    padding: 30px 40px; /* Increased padding for spacious look */
+    padding: 30px 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    max-width: 900px; /* Expanded max-width for a longer card */
-    width: 90%; /* Adjust width for responsive centering */
+    max-width: 900px;
+    width: 90%;
     margin: 0 auto;
     text-align: left;
     gap: 25px;
-    transition: transform 0.3s ease;;
+    transition: transform 0.3s ease;
 }
 
 .about-card:hover {
@@ -279,17 +242,14 @@ footer {
 .about-card h3 {
     font-size: 1.8rem;
     color: #333;
-    margin: 0;
 }
 
 .about-card p {
     font-size: 1rem;
     color: #666;
-    margin-top: 0.5rem;
     line-height: 1.5;
 }
 
-/* Social Links with Icons */
 .about-card .social-links {
     display: flex;
     align-items: center;
@@ -307,12 +267,6 @@ footer {
     color: #0056b3;
 }
 
-/* Icon Styling */
-.about-card .social-links a .icon {
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
 @media (max-width: 768px) {
     .about-card {
         flex-direction: column;
@@ -328,54 +282,46 @@ footer {
     }
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-a:hover{
+a:hover {
     color: #e0eafc;
 }
 
 .marquee {
     overflow: hidden;
     white-space: nowrap;
-    box-sizing: border-box;
     width: 100%;
-    background-color: darkolivegreen; /* Optional: Background color for visibility */
-    padding: 10px 0; /* Optional: Padding for spacing */
+    background-color: darkolivegreen;
+    padding: 10px 0;
 }
 
 .marquee-content {
     display: inline-block;
-    animation: marquee 15s linear infinite; /* Adjust speed with the duration */
+    animation: marquee 15s linear infinite;
 }
 
 .animated-link {
     display: inline-block;
-    padding-right: 50px; /* Space between links */
+    padding-right: 50px;
     font-size: 18px;
-    color: white ;
+    color: white;
     font-weight: bold;
 }
 
-.animated-link:hover{
-    cursor:pointer;
+.animated-link:hover {
+    cursor: pointer;
     color: #00bcd4;
 }
 
 @keyframes marquee {
     0% {
-        transform: translateX(100%); /* Start off the right side */
+        transform: translateX(100%);
     }
     100% {
-        transform: translateX(-100%); /* Move off the left side */
+        transform: translateX(-100%);
     }
 }
-
-
-
-
-
-
-
