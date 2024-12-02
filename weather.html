@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring</title>
+    <style>
+        /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Project Info Section */
+#project-info {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Section Headings (strong text) */
+strong {
+    font-size: 1.1rem;
+    color: #007bff;
+}
+
+/* Paragraph and List Styles */
+p, ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Image Styling */
+img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Video Embed Styling */
+iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #project-info {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p, ul {
+        font-size: 0.9rem;
+    }
+}
+/* Print Styles */
+@media print {
+    body {
+        background: url('987.jpg') no-repeat center center fixed; 
+        background-size: cover; 
+        background-attachment: fixed;
+        color: #000; 
+    }
+
+    #project-info {
+        max-width: 100%;
+        padding: 10px;
+        box-shadow: none; 
+    }
+
+    button {
+        display: none; 
+    }
+
+    img {
+        max-width: 100%; 
+    }
+
+    iframe {
+        display: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <section id="project-info">
+        <h3>Weather Monitoring System</h3>
+        
+        <p><strong>Project Overview:</strong></p>
+        <p>This IoT-based weather monitoring system collects real-time meteorological data, including temperature, humidity, and more, using various sensors. It provides users with up-to-the-minute weather updates through a user-friendly interface.</p>
+    
+        <p><strong>Technologies Used:</strong></p>
+        <ul>
+            <li><strong>Microcontroller:</strong> ESP8266</li>
+            <li><strong>Sensors:</strong>
+                <ul>
+                    &#8594; Rain Sensor (YL-83)<br>
+                    &#8594; Humidity/Temperature Sensor (DHT-11)
+                   <br> &#8594; Pressure Sensor (BMP-180)
+                   <br> &#8594; LDR Sensor
+                </ul>
+            </li>
+            <li><strong>Power Supply:</strong> Battery</li>
+            <li><strong>Cloud Platform:</strong> ThingSpeak</li>
+            <li><strong>User Interface:</strong> Mobile App / Web Dashboard</li>
+            <li><strong>Other:</strong> Connecting Wires</li>
+        </ul>
+
+        <p><strong>Block Diagram:</strong></p>
+        <p>The system connects multiple sensors, including the BMP180, DHT11, YL-83, and LDR sensors, to a microcontroller (ESP8266) powered by a battery. Data is transmitted to the ThingSpeak mobile app via cloud integration for real-time visualization.</p>
+        <img src="diagram.png" alt="Block-Diagram" width="40%">
+
+        <p><strong>Working Principal:</strong></p>
+        <ul>
+            <li><strong>Data Collection:</strong> Sensors collect real-time data (e.g., temperature, humidity, pressure, wind speed) at regular intervals.</li>
+            <li><strong>Data Processing:</strong> The microcontroller processes the raw data, formats it, and removes any noise or errors.</li>
+            <li><strong>Data Transmission:</strong> The processed data is sent to the cloud using Wi-Fi or other protocols like HTTP or MQTT.</li>
+            <li><strong>Cloud Storage & Processing:</strong> Data is stored in a cloud platform (like ThingSpeak) and can be processed for further insights.</li>
+            <li><strong>Data Visualization:</strong> Users can view real-time data on a web or mobile app, with visual dashboards showing trends and historical data.</li>
+        </ul>
+
+        <p><strong>Circuit Diagram:</strong></p>
+        <p>The system utilizes an ESP8266 microcontroller connected to various sensors (YL-83, DHT-11, BMP-180, LDR) and powered by a battery. Data is transmitted wirelessly to the cloud for remote access.</p>
+        <img src="circuit.png" alt="Circuit -Diagram" width="40%">
+
+        
+
+        <p><strong>Outcome:</strong></p>
+        <p>This weather monitoring system provides a reliable and easy-to-use solution for tracking key weather metrics. It can be used for personal weather tracking or integrated into larger meteorological systems for continuous monitoring.</p>
+    
+        <p><strong>Future Work:</strong></p>
+        <ul>
+            <li>Integrating wireless communication (e.g., Bluetooth, Wi-Fi) for remote data monitoring.</li>
+            <li>Adding data storage for historical weather tracking.</li>
+            <li>Improving accuracy with advanced sensors and algorithms.</li>
+        </ul>
+    
+    
+        <h3>Code for this Project</h3>
+        <div style="display: flex; justify-content: center; align-items: flex-start; gap: 10px;">
+            <!-- Code Display -->
+            <textarea id="code-content" readonly style="width: 90%; height: 200px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: monospace;">
+                /*
+                Weather monitoring system with ThingSpeak.
+                Created by Aayush Raj
+                Home Page
+             */
+             
+             #include <ESP8266WiFi.h>
+             #include "DHT.h"
+             //#include <Adafruit_BMP085_U.h>  // Library for BMP180 sensor
+             
+             // Define the DHT11 sensor and BMP180 sensor
+             DHT dht(D3, DHT11);  // DHT11 sensor connected to D3
+             //Adafruit_BMP085_Unified bmp; // BMP180 sensor instance
+             
+             WiFiClient client;
+             
+             // Define ThingSpeak API key and Wi-Fi credentials
+             String apiKey = "";  // ThingSpeak API key
+             const char *ssid = "";  // Wifi name
+             const char *pass = "";  // wifi password
+             const char* server = "api.thingspeak.com";
+             
+             // Pin definitions
+             const int rainSensorPin = A0;  // Rain sensor connected to A0 (used by both rain and LDR)
+             const int ldrSensorPin = D0;   // LDR sensor connected to D0 (updated from D0)
+             
+             void setup() {
+               Serial.begin(115200);
+               delay(10);
+             
+               // Initialize DHT11 sensor
+               dht.begin();
+               delay(2000);  // Delay to allow DHT sensor to initialize
+             
+             //  // Initialize BMP180 sensor
+             //  if (!bmp.begin()) {
+             //    Serial.println("Could not find a valid BMP180 sensor, check wiring!");
+             //    while (1); // Halt the program if the sensor is not found
+               }
+             
+               // Connect to Wi-Fi
+               Serial.print("Connecting to Wi-Fi");
+               WiFi.begin(ssid, pass);
+               while (WiFi.status() != WL_CONNECTED) {
+                 delay(500);
+                 Serial.print(".");
+               }
+               Serial.println("\nWiFi connected");
+             }
+             
+             void loop() {
+               // Read data from DHT11 sensor (Temperature and Humidity)
+               float h = dht.readHumidity();
+               float t = dht.readTemperature();
+             
+               // Retry loop if DHT sensor fails to read
+               int retryCount = 0;
+               while ((isnan(h) || isnan(t)) && retryCount < 5) {
+                 Serial.println("Failed to read from DHT sensor! Retrying...");
+                 delay(2000);  // Wait and retry
+                 h = dht.readHumidity();
+                 t = dht.readTemperature();
+                 retryCount++;
+               }
+             
+               if (isnan(h) || isnan(t)) {
+                 Serial.println("Failed to read from DHT sensor after multiple attempts.");
+                 return;
+               }
+             
+               // Read rain sensor (A0 pin) and map to percentage
+               int rainValue = analogRead(rainSensorPin);
+               int rainPercentage = map(rainValue, 0, 1024, 0, 100);  // Map rain sensor to percentage
+             
+             //  // BMP180 sensor (Temperature and Pressure)
+             //  sensors_event_t event;
+             //  bmp.getEvent(&event); // Get the sensor event
+             //  float bmpTemp = t;  // Using DHT11 for temperature (as BMP180's temp is similar)
+             //  float pressure = event.pressure;  // Pressure in hPa (millibar)
+             
+               // Read LDR sensor (A1 pin) and map to percentage
+               int ldrValue = analogRead(ldrSensorPin);
+               int lightIntensity = map(ldrValue, 0, 1024, 0, 100);  // Map LDR value to percentage
+             
+               // Send data to ThingSpeak
+               if (client.connect(server, 80)) {
+                 String postStr = apiKey;
+                 postStr += "&field1=" + String(t);         // Temperature from DHT11
+                 postStr += "&field2=" + String(h);         // Humidity from DHT11
+             //    postStr += "&field4=" + String(pressure);  // Pressure from BMP180
+                 postStr += "&field3=" + String(rainPercentage);  // Rain sensor value
+                 postStr += "&field5=" + String(lightIntensity);  // LDR sensor value
+                 postStr += "\r\n\r\n\r\n\r\n";
+             
+                 client.print("POST /update HTTP/1.1\n");
+                 client.print("Host: api.thingspeak.com\n");
+                 client.print("Connection: close\n");
+                 client.print("X-THINGSPEAKAPIKEY: " + apiKey + "\n");
+                 client.print("Content-Type: application/x-www-form-urlencoded\n");
+                 client.print("Content-Length: ");
+                 client.print(postStr.length());
+                 client.print("\n\n\n\n");
+                 client.print(postStr);
+             
+                 // Debugging output
+                 Serial.print("Temperature (DHT11): ");
+                 Serial.println(t);
+                 Serial.print("Humidity: ");
+                 Serial.println(h);
+             //    Serial.print("Pressure (BMP180): ");
+             //    Serial.println(pressure);
+                 Serial.print("Rain: ");
+                 Serial.println(rainPercentage);
+                 Serial.print("Light Intensity: ");
+                 Serial.println(lightIntensity);
+               }
+               client.stop();
+               delay(1000);  // Wait for 1 second before next loop
+             }
+             
+            </textarea>
+    
+            <!-- Copy Button -->
+            <button id="copy-btn" style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Copy
+            </button>
+        </div>
+    </section>
+    <section style="text-align: center;">
+        <!-- Print Button -->
+        <button id="print-btn" style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; border-radius: 5px; cursor: pointer; display: inline-block; margin-right: 20px;">Print</button>
+    
+        <!-- Download Button -->
+        <button style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; border-radius: 5px; display: inline-block;">
+            <a href="weather pdf.pdf" download="Project-IOT-Weather_Monitoring.pdf" style="text-decoration: none; color: white;">Project Report</a>
+        </button>
+    </section>
+
+    <section id="code-section" style="margin-top: 30px; text-align: center;">
+    <script>
+        // Copy Code functionality
+        document.getElementById("copy-btn").addEventListener("click", function () {
+            const codeContent = document.getElementById("code-content");
+            codeContent.select();
+            document.execCommand("copy");
+            alert("Code copied to clipboard!");
+        });
+
+        // Print functionality
+        document.getElementById("print-btn").addEventListener("click", function () {
+            window.print();
+        });
+    </script>
+</body>
+</html>
