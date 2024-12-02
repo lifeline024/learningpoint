@@ -1,3 +1,9 @@
+function toggleMenu() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('active');
+}
+
+
 // Function to show a specific section and hide others
 function showSection(sectionId) {
     // Hide all sections
