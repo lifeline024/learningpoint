@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - LearningPoint</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;  /* Reduced padding to fit better */
+    background-color: #0078d7;
+    color: #fff;
+    position: fixed;  /* This will keep the header at the top of the page even when scrolling */
+    top: 0;           /* Ensures it is positioned at the top of the page */
+    left: 0;          /* Align to the left */
+    right: 0;         /* Align to the right */
+    z-index: 1000;
+    height: 60px;     /* Fixed height for the header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
+}
+body {
+    padding-top: 60px; /* Add padding to the body content so it's not covered by the fixed header */
+}
+
+/* Logo and Navigation Adjustments */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Toggle Menu Styling */
+.toggle-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+/* Toggle Active State */
+.toggle-menu.active .toggle-bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.toggle-menu.active .toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle-menu.active .toggle-bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        width: 200px;
+    }
+}
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #f1f1f1;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff5722, #e91e63);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .card button:hover {
+            background: linear-gradient(45deg, #e91e63, #ff5722);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .card h3 {
+                font-size: 1.5rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .card button {
+                font-size: 0.9rem;
+            }
+        }
+
+        /*footer*/
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            width: 100%; /* Ensure the footer fills the width */
+            position: relative; /* Optional: ensures normal flow */
+        }
+    
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+    
+        footer a:hover {
+            text-decoration: underline;
+        }
+    
+        .footer-social-links {
+            margin-top: 10px;
+        }
+    
+        .footer-social-links a {
+            margin: 0 10px;
+        }
+    
+        @media (max-width: 768px) {
+            footer p {
+                font-size: 0.9rem;
+            }
+    
+            footer a {
+                font-size: 1rem;
+            }
+    
+            .footer-social-links {
+                margin-top: 15px;
+            }
+    
+            .footer-social-links a {
+                font-size: 1rem;
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+       <!-- Header -->
+       <header class="main-header">
+        <div class="logo">
+            <img src="LearningPoint.webp" alt="Logo" class="logo-img">
+            <span class="logo-text">𝕷𝖊𝖆𝖗𝖓𝖎𝖓𝖌𝕻𝖔𝖎𝖓𝖙</span>
+        </div>
+        <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="card-container">
+            <!-- Corrected Course Cards -->
+            <div class="card">
+                <h3>Python</h3>
+                <p>Learn the fundamentals of Python programming.</p>
+                <button onclick="window.open('course-python.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>C Programming</h3>
+                <p>Learn the basics of C programming.</p>
+                <button onclick="window.open('course-c.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>C++ Programming</h3>
+                <p>Master object-oriented programming with C++.</p>
+                <button onclick="window.open('course-cpp.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>Java Programming</h3>
+                <p>Build powerful applications with Java.</p>
+                <button onclick="window.open('course-java.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>HTML</h3>
+                <p>Learn the structure of web pages using HTML.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE?usp=drive_link', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>CSS</h3>
+                <p>Style web pages with CSS.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC?usp=drive_link', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>JavaScript</h3>
+                <p>Master interactive web development with JavaScript.</p>
+                <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM?usp=drive_link', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>SQL</h3>
+                <p>Manage and query databases with SQL.</p>
+                <button onclick="window.open('course-sql.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>DSA with C</h3>
+                <p>Learn data structures and algorithms using C.</p>
+                <button onclick="window.open('course-dsa-c.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>DSA with C++</h3>
+                <p>Learn data structures and algorithms using C++.</p>
+                <button onclick="window.open('course-dsa-cpp.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>DSA with Java</h3>
+                <p>Master data structures and algorithms using Java.</p>
+                <button onclick="window.open('course-dsa-java.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>DSA with Python</h3>
+                <p>Explore data structures and algorithms with Python.</p>
+                <button onclick="window.open('course-dsa-python.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>Go Programming</h3>
+                <p>Learn Google's Go programming language for scalable systems.</p>
+                <button onclick="window.open('course-go.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>Rust Programming</h3>
+                <p>Master safe and high-performance programming with Rust.</p>
+                <button onclick="window.open('course-rust.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>Kotlin</h3>
+                <p>Develop modern Android apps using Kotlin.</p>
+                <button onclick="window.open('course-kotlin.html', '_blank')">View Course</button>
+            </div>
+            <div class="card">
+                <h3>PHP</h3>
+                <p>Build dynamic websites using PHP.</p>
+                <button onclick="window.open('course-php.html', '_blank')">View Course</button>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+        <div class="footer-social-links">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a> |
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+        </div>
+
+    </footer>
+    <script>
+        const toggleMenu = document.querySelector('.toggle-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        toggleMenu.addEventListener('click', () => {
+            toggleMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+    </script>
+</body>
+</html>
