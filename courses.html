@@ -148,6 +148,7 @@ body {
         }
 
         h2 {
+            margin-top: 80px; 
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 40px;
@@ -227,6 +228,21 @@ body {
             }
         }
 
+        .section-title {
+            font-size: 2rem; /* Font size of the heading */
+            font-weight: bold; /* Makes the text bold */
+            color: #ffeb3b; /* Yellow color for the heading */
+            text-align: center; /* Aligns the text in the center */
+            text-transform: uppercase; /* Converts the text to uppercase */
+            margin-bottom: 20px; /* Adds space below the heading */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Adds a glowing effect */
+            background: linear-gradient(90deg, #ff5722, #e91e63); /* Gradient background */
+            -webkit-background-clip: text; /* Clips background to the text */
+            -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+            padding: 10px; /* Adds padding around the text */
+            border-radius: 10px; /* Rounds the edges slightly */
+        }
+        
         /*footer*/
         html, body {
             margin: 0;
@@ -294,7 +310,7 @@ body {
        <!-- Header -->
        <header class="main-header">
         <div class="logo">
-            <img src="logo.png" alt="Logo" class="logo-img">
+            <img src="LearningPoint.webp" alt="Logo" class="logo-img">
             <span class="logo-text">𝕷𝖊𝖆𝖗𝖓𝖎𝖓𝖌𝕻𝖔𝖎𝖓𝖙</span>
         </div>
         <div class="toggle-menu">
@@ -311,103 +327,144 @@ body {
             </ul>
         </nav>
     </header>
-    
-    <section id="courses">
-        <h2>Our Courses</h2>
-        <div class="card-container">
-            <!-- Corrected Course Cards -->
-            <div class="card">
-                <h3>Python</h3>
-                <p>Learn the fundamentals of Python programming.</p>
-                <button onclick="window.open('course-python.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>C Programming</h3>
-                <p>Learn the basics of C programming.</p>
-                <button onclick="window.open('course-c.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>C++ Programming</h3>
-                <p>Master object-oriented programming with C++.</p>
-                <button onclick="window.open('course-cpp.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>Java Programming</h3>
-                <p>Build powerful applications with Java.</p>
-                <button onclick="window.open('course-java.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>HTML</h3>
-                <p>Learn the structure of web pages using HTML.</p>
-                <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE?usp=drive_link', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>CSS</h3>
-                <p>Style web pages with CSS.</p>
-                <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC?usp=drive_link', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>JavaScript</h3>
-                <p>Master interactive web development with JavaScript.</p>
-                <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM?usp=drive_link', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>SQL</h3>
-                <p>Manage and query databases with SQL.</p>
-                <button onclick="window.open('course-sql.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>DSA with C</h3>
-                <p>Learn data structures and algorithms using C.</p>
-                <button onclick="window.open('course-dsa-c.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>DSA with C++</h3>
-                <p>Learn data structures and algorithms using C++.</p>
-                <button onclick="window.open('course-dsa-cpp.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>DSA with Java</h3>
-                <p>Master data structures and algorithms using Java.</p>
-                <button onclick="window.open('course-dsa-java.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>DSA with Python</h3>
-                <p>Explore data structures and algorithms with Python.</p>
-                <button onclick="window.open('course-dsa-python.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>Go Programming</h3>
-                <p>Learn Google's Go programming language for scalable systems.</p>
-                <button onclick="window.open('course-go.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>Rust Programming</h3>
-                <p>Master safe and high-performance programming with Rust.</p>
-                <button onclick="window.open('course-rust.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>Kotlin</h3>
-                <p>Develop modern Android apps using Kotlin.</p>
-                <button onclick="window.open('course-kotlin.html', '_blank')">View Course</button>
-            </div>
-            <div class="card">
-                <h3>PHP</h3>
-                <p>Build dynamic websites using PHP.</p>
-                <button onclick="window.open('course-php.html', '_blank')">View Course</button>
-            </div>
+
+<!-- <div id="search-results"></div> -->
+
+<section id="basic-computers">
+    <h2 class="section-title">Basic Computer</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Windows Basics</h3>
+            <p>Learn the essentials of using Windows OS.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
         </div>
-    </section>
+        <div class="card">
+            <h3>MS Office</h3>
+            <p>Master Microsoft Office tools like Word and Excel.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>Internet Basics</h3>
+            <p>Understand how to navigate and use the internet.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+    </div>
+</section>
+
+<section id="Basic-Programming">
+    <h2 class="section-title">Basic-Progamming</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>Python</h3>
+            <p>Learn the essentials of using Windows OS.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>C</h3>
+            <p>Master Microsoft Office tools like Word and Excel.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>C++</h3>
+            <p>Understand how to navigate and use the internet.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>C#</h3>
+            <p>Understand how to navigate and use the internet.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>Java</h3>
+            <p>Understand how to navigate and use the internet.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+    </div>
+</section>
+
+<section id="web-development">
+    <h2 class="section-title">Web Development</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Learn the structure of web pages using HTML.</p>
+            <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE?usp=drive_link', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>CSS</h3>
+            <p>Style web pages with CSS.</p>
+            <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC?usp=drive_link', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>Master interactive web development with JavaScript.</p>
+            <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM?usp=drive_link', '_blank')">Start Learning</button>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Sections -->
+<section id="data-structures">
+    <h2 class="section-title">Data Structures</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>DSA with C</h3>
+            <p>Learn data structures and algorithms using C.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>DSA with Java</h3>
+            <p>Master data structures and algorithms using Java.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>DSA with Python</h3>
+            <p>Explore data structures and algorithms with Python.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+    </div>
+</section>
+
+<section id="DataBase">
+    <h2 class="section-title">DataBase</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>SQL</h3>
+            <p>Learn the structure of web pages using HTML.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>MangoDB</h3>
+            <p>Style web pages with CSS.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+</section>
+
+<section id="Advance-Programming">
+    <h2 class="section-title">Advance-Programming</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>App Development</h3>
+            <p>Learn the structure of web pages using HTML.</p>
+            <button onclick="window.open('https://drive.google.com/drive/folders/1cV7RcNpLVUXuUxNQTcr_0SDuDjs0yExP?usp=drive_link', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <h3>MangoDB</h3>
+            <p>Style web pages with CSS.</p>
+            <button onclick="window.open('www.google.com', '_blank')">Start Learning</button>
+        </div>
+</section>
     <!-- footer -->
- <footer>
-<p>&copy; 2024 LearningPoint. All Rights Reserved.</p>
-<div class="footer-social-links">
-    <a href="https://www.facebook.com/profile.php?id=61557422087403">Facebook</a> |
-    <a href="https://www.instagram.com/_lifeline024/">Instagram</a> |
-    <a href="https://www.linkedin.com/in/aayush-shrivastava-6981a3308/">LinkedIn</a> |
-    <a href="https://github.com/lifeline024">GitHub</a>
-</div>
-</footer>
+    <footer>
+        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+        <div class="footer-social-links">
+            <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a> |
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+        </div>
+
+    </footer>
     <script>
         const toggleMenu = document.querySelector('.toggle-menu');
         const navMenu = document.querySelector('.nav-menu');
@@ -416,7 +473,7 @@ body {
             toggleMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
-        
+       
     </script>
 </body>
 </html>
