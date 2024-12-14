@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+    }
+    .container {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+    label {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      border-color: #ff7e5f;
+      box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff7e5f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #e66a4e;
+    }
+    .toggle {
+      text-align: center;
+      color: #ff7e5f;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    .toggle:hover {
+      text-decoration: underline;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 22px;
+      }
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="formTitle">Login</h2>
+    <form id="authForm">
+      <div id="nameField" style="display: none;">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your full name">
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <div id="confirmPasswordField" style="display: none;">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm your password">
+      </div>
+
+      <div class="error" id="errorMessage"></div>
+
+      <button type="submit" id="authButton">Login</button>
+    </form>
+    <p class="toggle" id="toggleForm">Don't have an account? Sign up</p>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBgY9BqsgKg3Osnhzxn1ToGVBz-in1xBd0",
+      authDomain: "fir-b013c.firebaseapp.com",
+      projectId: "fir-b013c",
+      storageBucket: "fir-b013c.appspot.com",
+      messagingSenderId: "809442143962",
+      appId: "1:809442143962:web:bb17a494ffbe862c1abfe3",
+      measurementId: "G-88QGX108SX"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // DOM Elements
+    const authForm = document.getElementById('authForm');
+    const formTitle = document.getElementById('formTitle');
+    const authButton = document.getElementById('authButton');
+    const toggleForm = document.getElementById('toggleForm');
+    const errorMessage = document.getElementById('errorMessage');
+    const nameField = document.getElementById('nameField');
+    const confirmPasswordField = document.getElementById('confirmPasswordField');
+
+    let isLogin = true; // Toggle between Login and Signup
+
+    // Toggle Form
+    toggleForm.addEventListener('click', () => {
+      isLogin = !isLogin;
+      if (isLogin) {
+        formTitle.textContent = 'Login';
+        authButton.textContent = 'Login';
+        toggleForm.textContent = "Don't have an account? Sign up";
+        nameField.style.display = 'none';
+        confirmPasswordField.style.display = 'none';
+      } else {
+        formTitle.textContent = 'Sign Up';
+        authButton.textContent = 'Sign Up';
+        toggleForm.textContent = 'Already have an account? Login';
+        nameField.style.display = 'block';
+        confirmPasswordField.style.display = 'block';
+      }
+      errorMessage.textContent = ''; // Clear error message
+    });
+
+    // Form Submission
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (!isLogin) {
+        const fullName = document.getElementById('fullName').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+          errorMessage.textContent = 'Passwords do not match!';
+          return;
+        }
+
+        // Firebase Signup
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            alert(`Signup successful! Welcome, ${fullName}`);
+            window.location.href = "index.html"; // Redirect to dashboard
+          })
+          .catch((error) => {
+            errorMessage.textContent = error.message;
+          });
+      } else {
+        // Firebase Login
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            window.location.href = "index.html"; // Redirect to dashboard
+          })
+          .catch((error) => {
+            errorMessage.textContent = error.message;
+          });
+      }
+    });
+  </script>
+</body>
+</html>
