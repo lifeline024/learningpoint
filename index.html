@@ -210,6 +210,67 @@
           });
       }
     });
+
+// Check if user is already logged in
+document.addEventListener('DOMContentLoaded', () => {
+  const userToken = localStorage.getItem('userLoggedIn');
+  if (userToken) {
+    // If user is already logged in, redirect to dashboard
+    window.location.href = "index.html"; // Replace with your dashboard URL
+  }
+});
+
+// Form Submission
+authForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  if (!isLogin) {
+    const fullName = document.getElementById('fullName').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (password !== confirmPassword) {
+      errorMessage.textContent = 'Passwords do not match!';
+      return;
+    }
+
+    // Firebase Signup
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert(`Signup successful! Welcome, ${fullName}`);
+        localStorage.setItem('userLoggedIn', true); // Save login status
+        window.location.href = "home.html"; // Redirect to dashboard
+      })
+      .catch((error) => {
+        errorMessage.textContent = error.message;
+      });
+  } else {
+    // Firebase Login
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        localStorage.setItem('userLoggedIn', true); // Save login status
+        window.location.href = "home.html"; // Redirect to dashboard
+      })
+      .catch((error) => {
+        errorMessage.textContent = error.message;
+      });
+  }
+});
+
+// Logout Function
+function logout() {
+  localStorage.removeItem('userLoggedIn'); // Remove login status
+  auth.signOut()
+    .then(() => {
+      alert('Logged out successfully!');
+      window.location.href = "index.html"; // Redirect to login page
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+}
   </script>
 </body>
 </html>
