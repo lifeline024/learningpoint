@@ -213,6 +213,103 @@
     text-align: left;
 }
 
+/* softwares */
+
+.software {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.software h3 {
+    font-size: 2rem;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Icon container styles */
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Icon card styles */
+.icon {
+    text-decoration: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 120px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.icon span {
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Hover effects */
+.icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon:hover img {
+    transform: rotate(360deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .icon {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .icon {
+        width: 80px;
+        padding: 8px;
+    }
+
+    .icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon span {
+        font-size: 10px;
+    }
+}
+
 /* Call-to-Action Section */
 .cta {
     text-align: center;
@@ -300,13 +397,17 @@ footer a:hover {
         margin: 0 8px;
     }
 }
+
+a{
+    text-decoration: none;
+}
      </style>
 </head>
 <body>
     <!-- Header -->
     <header class="main-header">
         <div class="logo">
-            <img src="logo.png" alt="Logo" class="logo-img">
+            <img src="LearningPoint.webp" alt="Logo" class="logo-img">
             <span class="logo-text">𝕷𝖊𝖆𝖗𝖓𝖎𝖓𝖌𝕻𝖔𝖎𝖓𝖙</span>
         </div>
         <div class="toggle-menu">
@@ -319,8 +420,8 @@ footer a:hover {
                 <li><a href="home.html">Home</a></li>
                 <li><a href="courses.html">Courses</a></li>
                 <li><a href="project.html">Projects</a></li>
-<!--                 <li><a href="contact.html">Contact</a></li> -->
-                <li><a href="index.html">Login</a></li>
+                <!-- <li><a href="contact.html">Contact</a></li> -->
+                <li><a href="login.html">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -332,7 +433,7 @@ footer a:hover {
         <div class="marquee">
             <div class="marquee-content">
                 <a href="https://drive.google.com/drive/folders/1u0XjazfmNVRfC8esmizehSv3IgNWN9H0?usp=drive_link" target="_blank" class="animated-link">Web Development</a>
-                <a href="https://www.link2.com" class="animated-link">Python Programming</a>
+                <a href="https://drive.google.com/file/d/17_09EX35hFwsZAoemefQiSILh8b61bQl/view?usp=drive_link" class="animated-link">Python Programming</a>
                 <a href="https://www.link3.com" class="animated-link">Java Programming</a>
                 <a href="https://www.link4.com" class="animated-link">C Programming</a>
             </div>
@@ -354,8 +455,98 @@ footer a:hover {
                 <p>"I love the hands-on approach of the courses. I was able to build my first web app in no time!"</p>
             </blockquote>
         </div>
-
-        <!-- Call-to-Action Section -->
+        
+        <!-- softwares -->
+        <div class="software">
+            <h3>Your Useful Software</h3>
+            <br>
+            <div class="icon-container">
+                <a href="https://code.visualstudio.com/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png" alt="Visual Studio Code">
+                    <span>VS Code</span>
+                </a>
+                <a href="https://www.jetbrains.com/idea/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906337.png" alt="IntelliJ IDEA">
+                    <span>IntelliJ IDEA</span>
+                </a>
+                <a href="https://www.eclipse.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968355.png" alt="Eclipse">
+                    <span>Eclipse</span>
+                </a>
+                <a href="https://atom.io/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="Atom">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://notepad-plus-plus.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3057/3057888.png" alt="Notepad++">
+                    <span>Notepad++</span>
+                </a>
+                <a href="https://www.cprogramming.com/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000" alt="C">
+                    <span>C Language</span>
+                </a>
+                <a href="https://isocpp.org/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000" alt="C++">
+                    <span>C++</span>
+                </a>
+                <a href="https://www.anaconda.com/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=F4uMFPZgS0gt&format=png&color=000000" alt="Anaconda">
+                    <span>Anaconda</span>
+                </a>
+                <a href="https://www.jetbrains.com/pycharm/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="PyCharm">
+                    <span>PyCharm</span>
+                </a>
+                <a href="https://www.python.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919852.png" alt="Python">
+                    <span>Python</span>
+                </a>
+                <a href="https://www.oracle.com/java/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java">
+                    <span>Java</span>
+                </a>
+                <a href="https://developer.android.com/studio" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=1LAX3PYMg2iA&format=png&color=000000" alt="Android Studio">
+                    <span>Android Studio</span>
+                </a>
+                <a href="https://react.dev/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="React">
+                    <span>React</span>
+                </a>
+                <a href="https://nodejs.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js">
+                    <span>Node.js</span>
+                </a>
+                <a href="https://angular.io/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=71256&format=png&color=000000" alt="Angular">
+                    <span>Angular</span>
+                </a>
+                <a href="https://www.djangoproject.com/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=mUBILbYvUMq8&format=png&color=000000" alt="Django">
+                    <span>Django</span>
+                <a href="https://getbootstrap.com/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bootstrap">
+                    <span>Bootstrap</span>
+                </a>
+                <a href="https://flutter.dev/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=TwdB62yFXesu&format=png&color=000000" alt="Flutter">
+                    <span>Flutter</span>
+                </a>
+                <a href="https://www.ruby-lang.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919842.png" alt="Ruby">
+                    <span>Ruby</span>
+                </a>
+                <a href="https://www.php.net/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="PHP">
+                    <span>PHP</span>
+                </a>
+                <a href="https://www.mysql.com/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="MySQL">
+                    <span>MySQL</span>
+                </a>
+            </div>
+        </div>
+         <!-- Call-to-Action Section -->
         <div class="cta">
             <h2>Stay Updated!</h2>
             <p>With LearningPoint</p>
@@ -365,15 +556,15 @@ footer a:hover {
 </main>
 
 <!-- footer -->
- <footer>
-<p>&copy; 2024 LearningPoint. All Rights Reserved.</p>
-<div class="footer-social-links">
-    <a href="https://www.facebook.com/profile.php?id=61557422087403">Facebook</a> |
-    <a href="https://www.instagram.com/_lifeline024/">Instagram</a> |
-    <a href="https://www.linkedin.com/in/aayush-shrivastava-6981a3308/">LinkedIn</a> |
-    <a href="https://github.com/lifeline024">GitHub</a>
-</div>
-</footer>
+<footer>
+    <p>&copy; 2024 LearningPoint. All Rights Reserved.</p>
+    <div class="footer-social-links">
+        <a href="https://www.facebook.com/profile.php?id=61557422087403" target="_blank">Facebook</a> |
+        <a href="https://www.instagram.com/_lifeline024/" target="_blank">Instagram</a> |
+        <a href="nkedin.com/in/aayush-shrivastava-6981a3308/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/lifeline024" target="_blank">GitHub</a>
+    </div>
+    </footer>
     <script>
         const toggleMenu = document.querySelector('.toggle-menu');
 const navMenu = document.querySelector('.nav-menu');
