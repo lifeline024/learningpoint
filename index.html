@@ -309,7 +309,7 @@ p {
   </div>
 
   <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script>
 
   <script type="module">
@@ -323,7 +323,8 @@ p {
       projectId: "learningpoint-47fe2",
       storageBucket: "learningpoint-47fe2.firebasestorage.app",
       messagingSenderId: "205465559693",
-      appId: "1:205465559693:web:39308dd632c57b0d24c58b"
+      appId: "1:205465559693:web:d3eba8ae93302e64cb78c4",
+      measurementId: "G-7592DE1CFE"
     };
 
     // Initialize Firebase
@@ -331,77 +332,112 @@ p {
     const auth = getAuth(app);
 
     // DOM Elements
-    const authForm = document.getElementById("authForm");
-    const toggleForm = document.getElementById("toggleForm");
-    const backToLogin = document.getElementById("backToLogin");
-    const formTitle = document.getElementById("formTitle");
-    const authButton = document.getElementById("authButton");
-    const nameField = document.getElementById("nameField");
-    const confirmPasswordField = document.getElementById("confirmPasswordField");
-    const errorMessage = document.getElementById("errorMessage");
-    const resetPasswordSection = document.getElementById("resetPasswordSection");
-    const forgotPassword = document.getElementById("forgotPassword");
-    const resetPasswordButton = document.getElementById("resetPasswordButton");
-    const resetEmail = document.getElementById("resetEmail");
-    const resetErrorMessage = document.getElementById("resetErrorMessage");
+    const authForm = document.getElementById('authForm');
+    const formTitle = document.getElementById('formTitle');
+    const authButton = document.getElementById('authButton');
+    const toggleForm = document.getElementById('toggleForm');
+    const forgotPassword = document.getElementById('forgotPassword');
+    const resetPasswordSection = document.getElementById('resetPasswordSection');
+    const resetPasswordButton = document.getElementById('resetPasswordButton');
+    const backToLogin = document.getElementById('backToLogin');
+    const errorMessage = document.getElementById('errorMessage');
+    const resetErrorMessage = document.getElementById('resetErrorMessage');
+    const nameField = document.getElementById('nameField');
+    const confirmPasswordField = document.getElementById('confirmPasswordField');
 
-    // Toggle between Login and Signup
-    toggleForm.addEventListener("click", () => {
-      if (formTitle.innerText === "Login") {
-        formTitle.innerText = "Sign Up";
-        toggleForm.innerText = "Already have an account? Login";
-        nameField.style.display = "block";
-        confirmPasswordField.style.display = "block";
-        authButton.innerText = "Sign Up";
+    let isLogin = true; // Toggle between Login and Signup
+
+    // Toggle Form
+    toggleForm.addEventListener('click', () => {
+      isLogin = !isLogin;
+      if (isLogin) {
+        formTitle.textContent = 'Login';
+        authButton.textContent = 'Login';
+        toggleForm.textContent = "Don't have an account? Sign up";
+        nameField.style.display = 'none';
+        confirmPasswordField.style.display = 'none';
+        resetPasswordSection.style.display = 'none';
+        authForm.style.display = 'block';
       } else {
-        formTitle.innerText = "Login";
-        toggleForm.innerText = "Don't have an account? Sign up";
-        nameField.style.display = "none";
-        confirmPasswordField.style.display = "none";
-        authButton.innerText = "Login";
+        formTitle.textContent = 'Sign Up';
+        authButton.textContent = 'Sign Up';
+        toggleForm.textContent = 'Already have an account? Login';
+        nameField.style.display = 'block';
+        confirmPasswordField.style.display = 'block';
+        resetPasswordSection.style.display = 'none';
+        authForm.style.display = 'block';
       }
+      errorMessage.textContent = ''; // Clear error message
     });
 
-    // Handle Login or Sign Up
-    authForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      try {
-        if (formTitle.innerText === "Sign Up") {
-          const fullName = document.getElementById("fullName").value;
-          await createUserWithEmailAndPassword(auth, email, password);
-          alert("Sign up successful!");
-        } else {
-          await signInWithEmailAndPassword(auth, email, password);
-          alert("Login successful!");
-        }
-      } catch (error) {
-        errorMessage.textContent = error.message;
-      }
-    });
-
-    // Reset Password
-    forgotPassword.addEventListener("click", () => {
-      resetPasswordSection.style.display = "block";
-      authForm.style.display = "none";
-    });
-
-    resetPasswordButton.addEventListener("click", async () => {
-      const email = resetEmail.value;
-      try {
-        await sendPasswordResetEmail(auth, email);
-        alert("Password reset email sent!");
-      } catch (error) {
-        resetErrorMessage.textContent = error.message;
-      }
+    // Forgot Password
+    forgotPassword.addEventListener('click', () => {
+      authForm.style.display = 'none';
+      resetPasswordSection.style.display = 'block';
+      errorMessage.textContent = ''; // Clear error message
     });
 
     // Back to Login/Signup
-    backToLogin.addEventListener("click", () => {
-      resetPasswordSection.style.display = "none";
-      authForm.style.display = "block";
+    backToLogin.addEventListener('click', () => {
+      resetPasswordSection.style.display = 'none';
+      authForm.style.display = 'block';
+    });
+
+    // Form Submission (Login/Signup)
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (!isLogin) {
+        const fullName = document.getElementById('fullName').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+          errorMessage.textContent = 'Passwords do not match!';
+          return;
+        }
+
+        // Firebase Signup
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            alert(`Signup successful! Welcome, ${fullName}`);
+            window.location.href = "home.html"; // Redirect to dashboard
+          })
+          .catch((error) => {
+            errorMessage.textContent = error.message;
+          });
+      } else {
+        // Firebase Login
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            window.location.href = "home.html"; // Redirect to dashboard
+          })
+          .catch((error) => {
+            errorMessage.textContent = error.message;
+          });
+      }
+    });
+
+    // Password Reset
+    resetPasswordButton.addEventListener('click', () => {
+      const email = document.getElementById('resetEmail').value;
+
+      if (!email) {
+        resetErrorMessage.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          alert('Password reset email sent!');
+          resetErrorMessage.textContent = ''; // Clear error message
+          backToLogin.click();
+        })
+        .catch((error) => {
+          resetErrorMessage.textContent = error.message;
+        });
     });
   </script>
 </body>
