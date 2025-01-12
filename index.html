@@ -4,123 +4,677 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearningPoint</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+     <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0078d7;
+    color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Toggle Menu Styling */
+.toggle-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-menu li:last-child {
+    border-bottom: none;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+/* Toggle Active State */
+.toggle-menu.active .toggle-bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.toggle-menu.active .toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle-menu.active .toggle-bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        width: 200px;
+    }
+}
+/* /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Marquee Section */
+.marquee {
+    overflow: hidden;
+    background-color: #0078d7;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.marquee-content {
+    display: flex;
+    animation: scroll 15s linear infinite;
+    gap: 30px;
+}
+
+.animated-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.animated-link:hover {
+    color: #00d1ff;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0078d7;
+}
+
+.testimonials blockquote {
+    font-size: 1.1rem;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fff;
+    color: #555;
+    border-left: 4px solid #0078d7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: left;
+}
+
+/* softwares */
+
+.software {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.software h3 {
+    font-size: 2rem;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Icon container styles */
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Icon card styles */
+.icon {
+    text-decoration: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 120px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.icon span {
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Hover effects */
+.icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon:hover img {
+    transform: rotate(360deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .icon {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .icon {
+        width: 80px;
+        padding: 8px;
+    }
+
+    .icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .icon span {
+        font-size: 10px;
+    }
+}
+
+
+        /* Floating Help Button */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
         }
 
-        body {
+        .fab-button {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f7f7f7;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
-            background: linear-gradient(135deg, #6ab04c, #2980b9);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .container {
-            text-align: center;
-            color: #fff;
-            animation: fadeInContainer 1s ease-out;
+        .fab-button:hover {
+            transform: scale(1.1);
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            background-image: url('logo.png');
-            background-size: cover;
-            background-position: center;
+        /* Add avatar icon */
+        .assistant-icon {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            margin: 0 auto;
-            animation: logoFlyUp 1s ease-out forwards;
+            object-fit: cover;
         }
 
-        .learningpoint {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #fff;
+        /* Toolbar */
+        .toolbar {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             opacity: 0;
-            animation: fadeInText 1.5s ease-out forwards;
-            animation-delay: 1s;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: 20px;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        .slogan {
-            font-size: 1.2rem;
+        .fab-container.active .toolbar {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .toolbar a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0078d7;
             color: #fff;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .toolbar a:hover {
+            background-color: #005bb5;
+            transform: scale(1.1);
+        }
+
+        .toolbar a i {
+            font-size: 20px;
+        }
+
+        /* Tooltip */
+        .toolbar a span {
+            position: absolute;
+            right: 60px;
+            background-color: #333;
+            color: #fff;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            visibility: hidden;
             opacity: 0;
-            animation: fadeInSlogan 1s ease-out forwards;
-            animation-delay: 2.5s;
-            font-style: italic;
-            margin-top: 10px;
-            letter-spacing: 1.5px;
+            transform: translateX(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        @keyframes fadeInContainer {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        .toolbar a:hover span {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
         }
+ 
+/* footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    position: relative;
+}
 
-        @keyframes logoFlyUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
 
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+footer a {
+    color: #ff5722;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
 
-        @keyframes fadeInSlogan {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-social-links {
+    margin-top: 10px;
+}
+
+.footer-social-links a {
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+    }
+
+    .footer-social-links {
+        margin-top: 15px;
+    }
+
+    .footer-social-links a {
+        font-size: 1rem;
+        margin: 0 8px;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+     </style>
 </head>
 <body>
-
-    <div class="container">
-        <div class="logo"></div>
-        <div class="learningpoint">𝕃𝕖𝕒𝕣𝕟𝕚𝕟𝕘ℙ𝕠𝕚𝕟𝕥</div>
-        <div class="slogan">𝐄𝐦𝐩𝐨𝐰𝐞𝐫𝐢𝐧𝐠 𝐲𝐨𝐮 𝐭𝐨 𝐜𝐨𝐝𝐞, 𝐥𝐞𝐚𝐫𝐧, 𝐚𝐧𝐝 𝐠𝐫𝐨𝐰!</div>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo">
+        <img src="logo.png" alt="Logo" class="logo-img">
+        <span class="logo-text">𝕷𝖊𝖆𝖗𝖓𝖎𝖓𝖌𝕻𝖔𝖎𝖓𝖙</span>
     </div>
+    
+        
+        <div class="toggle-menu">
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+            <div class="toggle-bar"></div>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="login.html">Logout</a></li> -->
+            </ul>
+        </nav>
+    </header>
 
+<!-- Home -->
+<main>
+    <!-- Marquee Section -->
+    <section id="home">
+        <div class="marquee">
+            <div class="marquee-content">
+                <a href="https://drive.google.com/drive/folders/1u0XjazfmNVRfC8esmizehSv3IgNWN9H0?usp=drive_link" target="_blank" class="animated-link">Web Development</a>
+                <a href="https://drive.google.com/file/d/17_09EX35hFwsZAoemefQiSILh8b61bQl/view?usp=drive_link" class="animated-link">Python Programming</a>
+                <a href="https://www.link3.com" class="animated-link">Java Programming</a>
+                <a href="https://www.link4.com" class="animated-link">C Programming</a>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Welcome to LearningPoint</h1>
+            <p>Your gateway to mastering programming skills.</p>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h2>✨ What People Say ✨</h2>
+            <blockquote>
+                <p>"LearningPoint has transformed my career! The courses are well-structured and easy to follow."</p>
+            </blockquote>
+            <blockquote>
+                <p>"I love the hands-on approach of the courses. I was able to build my first web app in no time!"</p>
+            </blockquote>
+        </div>
+        
+        <!-- softwares -->
+        <div class="software">
+            <h3>Your Useful Software</h3>
+            <br>
+            <div class="icon-container">
+                <a href="https://code.visualstudio.com/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png" alt="Visual Studio Code">
+                    <span>VS Code</span>
+                </a>
+                <a href="https://www.jetbrains.com/idea/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906337.png" alt="IntelliJ IDEA">
+                    <span>IntelliJ IDEA</span>
+                </a>
+                <a href="https://www.eclipse.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968355.png" alt="Eclipse">
+                    <span>Eclipse</span>
+                </a>
+                <a href="https://atom.io/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="Atom">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://notepad-plus-plus.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3057/3057888.png" alt="Notepad++">
+                    <span>Notepad++</span>
+                </a>
+                <a href="https://www.cprogramming.com/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000" alt="C">
+                    <span>C Language</span>
+                </a>
+                <a href="https://isocpp.org/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000" alt="C++">
+                    <span>C++</span>
+                </a>
+                <a href="https://www.anaconda.com/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=F4uMFPZgS0gt&format=png&color=000000" alt="Anaconda">
+                    <span>Anaconda</span>
+                </a>
+                <a href="https://www.jetbrains.com/pycharm/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="PyCharm">
+                    <span>PyCharm</span>
+                </a>
+                <a href="https://www.python.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919852.png" alt="Python">
+                    <span>Python</span>
+                </a>
+                <a href="https://www.oracle.com/java/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java">
+                    <span>Java</span>
+                </a>
+                <a href="https://developer.android.com/studio" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=1LAX3PYMg2iA&format=png&color=000000" alt="Android Studio">
+                    <span>Android Studio</span>
+                </a>
+                <a href="https://react.dev/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="React">
+                    <span>React</span>
+                </a>
+                <a href="https://nodejs.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js">
+                    <span>Node.js</span>
+                </a>
+                <a href="https://angular.io/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=71256&format=png&color=000000" alt="Angular">
+                    <span>Angular</span>
+                </a>
+                <a href="https://www.djangoproject.com/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=mUBILbYvUMq8&format=png&color=000000" alt="Django">
+                    <span>Django</span>
+                <a href="https://getbootstrap.com/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bootstrap">
+                    <span>Bootstrap</span>
+                </a>
+                <a href="https://flutter.dev/" class="icon" target="_blank">
+                    <img src="https://img.icons8.com/?size=100&id=TwdB62yFXesu&format=png&color=000000" alt="Flutter">
+                    <span>Flutter</span>
+                </a>
+                <a href="https://www.ruby-lang.org/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919842.png" alt="Ruby">
+                    <span>Ruby</span>
+                </a>
+                <a href="https://www.php.net/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="PHP">
+                    <span>PHP</span>
+                </a>
+                <a href="https://www.mysql.com/" class="icon" target="_blank">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="MySQL">
+                    <span>MySQL</span>
+                </a>
+            </div>
+        </div>
+         <!-- Call-to-Action Section -->
+         <div class="fab-container">
+            <!-- Main FAB with Assistant Avatar -->
+            <button class="fab-button">
+                <img src="https://img.icons8.com/?size=100&id=13540&format=png&color=000000" alt="Assistant" class="assistant-icon">
+            </button>
+    
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <a href="https://wa.me/1234567890" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://t.me/LearningPoint024" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="mailto:rajaayush931@gmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- footer -->
+<footer>
+    <p>&copy; 2024 LearningPoint. All Rights Reserved.</p>
+    <div class="footer-social-links">
+        <a href="https://www.facebook.com/profile.php?id=61557422087403" target="_blank" class="fab fa-facebook-f"></a> |
+        <a href="https://www.instagram.com/_lifeline024/" target="_blank" class="fab fa-instagram"></a> |
+        <a href="https://www.linkedin.com/in/aayush-shrivastava-6981a3308/" target="_blank" class="fab fa-linkedin-in"></a> |
+        <a href="https://github.com/lifeline024" target="_blank" class="fab fa-github"></a>
+    </div>
+    
+    </footer>
     <script>
-        // Redirect to home.html after 5 seconds
-        setTimeout(function() {
-            history.replaceState(null,null,"home.html");
-            window.location.href = 'home.html';
-        }, 5000);
-    </script>
+        const toggleMenu = document.querySelector('.toggle-menu');
+const navMenu = document.querySelector('.nav-menu');
 
+toggleMenu.addEventListener('click', () => {
+    toggleMenu.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+const marquee = document.querySelector('.marquee-content');
+
+marquee.addEventListener('mouseover', () => {
+    marquee.style.animationPlayState = 'paused';
+});
+
+marquee.addEventListener('mouseout', () => {
+    marquee.style.animationPlayState = 'running';
+});
+
+
+ // Toggle FAB Toolbar
+ const fabButton = document.querySelector('.fab-button');
+ const fabContainer = document.querySelector('.fab-container');
+
+ fabButton.addEventListener('click', () => {
+     fabContainer.classList.toggle('active');
+ });
+    </script>
 </body>
 </html>
