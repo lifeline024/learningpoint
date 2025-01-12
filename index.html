@@ -117,7 +117,8 @@
     <script>
         // Redirect to home.html after 5 seconds
         setTimeout(function() {
-            window.location.href = 'home.html';
+            window.location.href = "home.html";
+history.replaceState(null, null, "home.html");
         }, 5000);
     </script>
 
