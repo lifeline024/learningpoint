@@ -175,19 +175,53 @@
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background-color: #f4f4f4;
+    
 }
 
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: #333;
-}
-
+    color: white; /* Default text color */
+     text-shadow:
+        2px 2px 0px rgba(0, 0, 0, 0.8),   /* Top-left shadow */
+        -2px -2px 0px rgba(0, 0, 0, 0.8),  /* Bottom-right shadow */
+        2px -2px 0px rgba(0, 0, 0, 0.8),   /* Bottom-left shadow */
+        -2px 2px 0px rgba(0, 0, 0, 0.8);   /* Top-right shadow */}
 .hero p {
     font-size: 1.2rem;
-    color: #555;
+    color: white; /* Default text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Shadow for dark images */
+    
 }
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-image: url('image1.png'), url('image2.png'), url('image3.png'), url('image4.png');
+    background-size: cover;
+    background-position: center;
+    animation: slideshow 20s infinite;
+}
+
+@keyframes slideshow {
+    0% {
+        background-image: url('image1.png'), url('image2.png'), url('image3.png'), url('image4.png');
+    }
+    25% {
+        background-image: url('image2.png'), url('image3.png'), url('image4.png'), url('image1.png');
+    }
+    50% {
+        background-image: url('image3.png'), url('image4.png'), url('image1.png'), url('image2.png');
+    }
+    75% {
+        background-image: url('image4.png'), url('image1.png'), url('image2.png'), url('image3.png');
+    }
+    100% {
+        background-image: url('image1.png'), url('image2.png'), url('image3.png'), url('image4.png');
+    }
+}
+
+
 
 /* Testimonials Section */
 .testimonials {
@@ -620,7 +654,7 @@ a{
     
             <!-- Toolbar -->
             <div class="toolbar">
-                <a href="https://wa.me/+918083030197" target="_blank">
+                <a href="https://wa.me/1234567890" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
