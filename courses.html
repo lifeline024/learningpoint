@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses - LearningPoint</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* General Reset */
 * {
@@ -128,182 +129,119 @@ body {
     visibility: visible;
 }
 
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading Style */
+h2 {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Grid Layout */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+.card i {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+/* Card Content */
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.card button {
+    background: #ffcc00;
+    color: #141e30;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.card button:hover {
+    background: #e6b800;
+}
+
+
+
 /* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        width: 200px;
+@media (max-width: 1200px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
     }
 }
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        body {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
-            padding: 20px;
-        }
 
-        h2 {
-            margin-top: 80px; 
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #fff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-        }
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
 
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            backdrop-filter: blur(8px);
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #ffeb3b;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .card p {
-            font-size: 1rem;
-            color: #f1f1f1;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .card button {
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #ff5722, #e91e63);
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .card button:hover {
-            background: linear-gradient(45deg, #e91e63, #ff5722);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        @media (max-width: 600px) {
-            h2 {
-                font-size: 2rem;
-            }
-
-            .card h3 {
-                font-size: 1.5rem;
-            }
-
-            .card p {
-                font-size: 0.9rem;
-            }
-
-            .card button {
-                font-size: 0.9rem;
-            }
-        }
-
-        .section-title {
-            font-size: 2rem; /* Font size of the heading */
-            font-weight: bold; /* Makes the text bold */
-            color: #ffeb3b; /* Yellow color for the heading */
-            text-align: center; /* Aligns the text in the center */
-            text-transform: uppercase; /* Converts the text to uppercase */
-            margin-bottom: 20px; /* Adds space below the heading */
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Adds a glowing effect */
-            background: linear-gradient(90deg, #ff5722, #e91e63); /* Gradient background */
-            -webkit-background-clip: text; /* Clips background to the text */
-            -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
-            padding: 10px; /* Adds padding around the text */
-            border-radius: 10px; /* Rounds the edges slightly */
-        }
-        
-        /*footer*/
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
-        
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-        
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            width: 100%; /* Ensure the footer fills the width */
-            position: relative; /* Optional: ensures normal flow */
-        }
+    .card-container {
+        grid-template-columns: 1fr; /* Single column for small screens */
+    }
     
-        footer p {
-            margin: 0;
-            font-size: 1rem;
-        }
-    
-        footer a {
-            color: #ff5722;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-    
-        footer a:hover {
-            text-decoration: underline;
-        }
-    
-        .footer-social-links {
-            margin-top: 10px;
-        }
-    
-        .footer-social-links a {
-            margin: 0 10px;
-        }
-    
-        @media (max-width: 768px) {
-            footer p {
-                font-size: 0.9rem;
-            }
-    
-            footer a {
-                font-size: 1rem;
-            }
-    
-            .footer-social-links {
-                margin-top: 15px;
-            }
-    
-            .footer-social-links a {
-                font-size: 1rem;
-                margin: 0 8px;
-            }
-        }
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    .card button {
+        font-size: 0.9rem;
+    }
+} 
+.section-title {
+   text-align: left;
+   margin-left: 65px;
+}
     </style>
 </head>
 <body>
@@ -328,148 +266,142 @@ body {
         </nav>
     </header>
 
-<!-- <div id="search-results"></div> -->
-
-<section id="basic-computers">
-    <h2 class="section-title">Basic Computer</h2>
+ <!-- Basic Computers Section -->
+ <section id="basic-computers">
+    <h2 class="section-title">BASIC COMPUTER</h2>
     <div class="card-container">
         <div class="card">
+            <i class="fas fa-desktop"></i>
             <h3>Windows Basics</h3>
             <p>Learn the essentials of using Windows OS.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLsep1uQfemNFvT57-DOjzSnGspJv8efpS&si=qb-8yfjdDtFZMEhK', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLsep1uQfemNFvT57-DOjzSnGspJv8efpS', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fas fa-file-word"></i>
             <h3>MS Word</h3>
-            <p>Master Microsoft Office tools Word .</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLRQGNW3q__WkhDpHwdQ3buNntOX-gbsfI&si=oseGPEojVKs4qpem', '_blank')">Start Learning</button>
+            <p>Master Microsoft Word.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLRQGNW3q__WkhDpHwdQ3buNntOX-gbsfI', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fas fa-globe"></i>
             <h3>Internet Basics</h3>
             <p>Understand how to navigate and use the internet.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLVbRFL6i5RVIpYA6k8fF1UtL2YdResTXk&si=Irm_nyFo52qzfT3z', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLVbRFL6i5RVIpYA6k8fF1UtL2YdResTXk', '_blank')">Start Learning</button>
         </div>
     </div>
 </section>
 
+<!-- Basic Programming Section -->
 <section id="Basic-Programming">
-    <h2 class="section-title">Basic-Progamming</h2>
+    <h2 class="section-title">BASIC PROGRAMMING</h2>
     <div class="card-container">
         <div class="card">
+            <i class="fab fa-python"></i>
             <h3>Python</h3>
-            <p>Learn the essentials of using Windows OS.</p>
-            <button onclick="window.open('https://drive.google.com/file/d/17_09EX35hFwsZAoemefQiSILh8b61bQl/view?usp=drive_link', '_blank')">Start Learning</button>
+            <p>Learn the basics of Python programming.</p>
+            <button onclick="window.open('https://drive.google.com/file/d/17_09EX35hFwsZAoemefQiSILh8b61bQl', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fas fa-code"></i>
             <h3>C</h3>
-            <p>Master Microsoft Office tools like Word and Excel.</p>
-            <button onclick="window.open('https://youtu.be/irqbmMNs2Bo?si=H3mOE_Wm7MnZ7dT4', '_blank')">Start Learning</button>
+            <p>Learn C programming fundamentals.</p>
+            <button onclick="window.open('https://youtu.be/irqbmMNs2Bo', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fas fa-laptop-code"></i>
             <h3>C++</h3>
-            <p>Understand how to navigate and use the internet.</p>
-            <button onclick="window.open('https://youtu.be/e7sAf4SbS_g?si=l8tFhhTk2VSGaZaS', '_blank')">Start Learning</button>
+            <p>Master C++ programming.</p>
+            <button onclick="window.open('https://youtu.be/e7sAf4SbS_g', '_blank')">Start Learning</button>
         </div>
         <div class="card">
-            <h3>C#</h3>
-            <p>Understand how to navigate and use the internet.</p>
-            <button onclick="window.open('https://youtu.be/SuLiu5AK9Ps?si=MtrJNonQUJbe9P5l', '_blank')">Start Learning</button>
-        </div>
-        <div class="card">
+            <i class="fab fa-java"></i>
             <h3>Java</h3>
-            <p>Understand how to navigate and use the internet.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q&si=SD3RVOP6reFhH0mC', '_blank')">Start Learning</button>
+            <p>Learn Java programming.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q', '_blank')">Start Learning</button>
         </div>
     </div>
 </section>
 
+<!-- Web Development Section -->
 <section id="web-development">
-    <h2 class="section-title">Web Development</h2>
+    <h2 class="section-title">WEB DEVELOPMENT</h2>
     <div class="card-container">
         <div class="card">
+            <i class="fab fa-html5"></i>
             <h3>HTML</h3>
             <p>Learn the structure of web pages using HTML.</p>
-            <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE?usp=drive_link', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://drive.google.com/drive/folders/13OVV2DhBQAErA5X8uOi9kz_yULhD10OE', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fab fa-css3-alt"></i>
             <h3>CSS</h3>
             <p>Style web pages with CSS.</p>
-            <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC?usp=drive_link', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://drive.google.com/drive/folders/1_X2euVIAqAowaBAU-hvrjCOGO7yH1wAC', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fab fa-js"></i>
             <h3>JavaScript</h3>
             <p>Master interactive web development with JavaScript.</p>
-            <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM?usp=drive_link', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://drive.google.com/drive/folders/1Ni6JSu0x1357rbKz0AbMwMVvZnxKsdXM', '_blank')">Start Learning</button>
         </div>
     </div>
 </section>
 
-<!-- Additional Sections -->
+<!-- Data Structures Section -->
 <section id="data-structures">
-    <h2 class="section-title">Data Structures</h2>
+    <h2 class="section-title">DATA STRUCTURE</h2>
     <div class="card-container">
         <div class="card">
+            <i class="fas fa-database"></i>
+            <h3>Design analysis with Algorithms (DAA)</h3>
+            <p>Learn algorithms with design analysis.</p>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&si=x_aqBolE1o8kQj3J', '_blank')">Start Learning</button>
+        </div>
+        <div class="card">
+            <i class="fas fa-database"></i>
             <h3>DSA with C</h3>
             <p>Learn data structures and algorithms using C.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi&si=ghHFDnxA7iDQHYY3', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fas fa-database"></i>
             <h3>DSA with Java</h3>
             <p>Master data structures and algorithms using Java.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLH9iLcrNpXtQYQiudzpZpGw0mptHc06Su&si=IQh_BW_CXaSksNX0', '_blank')">Start Learning</button>
-        </div>
-        <div class="card">
-            <h3>DSA with Python</h3>
-            <p>Explore data structures and algorithms with Python.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PL7ersPsTyYt1HnCgrT6Up-pan4yLBpyFs&si=B4Bn4mB-J28r_TmC', '_blank')">Start Learning</button>
-        </div>
-        <div class="card">
-            <h3>DSA with C++</h3>
-            <p>Explore data structures and algorithms with C++.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PLfqMhTWNBTe137I_EPQd34TsgV6IO55pt&si=zm9qmci0mxAHjKwP', '_blank')">Start Learning</button>
+            <button onclick="window.open('https://youtube.com/playlist?list=PLH9iLcrNpXtQYQiudzpZpGw0mptHc06Su', '_blank')">Start Learning</button>
         </div>
     </div>
 </section>
 
+<!-- Advanced Programming Section -->
 <section id="Advance-Programming">
-    <h2 class="section-title">Advance-Programming</h2>
+    <h2 class="section-title">ADVANCE PROGRAMMING</h2>
     <div class="card-container">
         <div class="card">
+            <i class="fas fa-mobile-alt"></i>
             <h3>App Development</h3>
-            <p>Learn the structure of web pages using HTML.</p>
-            <button onclick="window.open('https://drive.google.com/drive/folders/1cV7RcNpLVUXuUxNQTcr_0SDuDjs0yExP?usp=drive_link', '_blank')">Start Learning</button>
+            <p>Learn app development with real-world projects.</p>
+            <button onclick="window.open('https://drive.google.com/drive/folders/1cV7RcNpLVUXuUxNQTcr_0SDuDjs0yExP', '_blank')">Start Learning</button>
         </div>
         <div class="card">
-            <h3>PhP</h3>
-            <p>Style web pages with CSS.</p>
-            <button onclick="window.open('https://youtu.be/V821daR3UcM?si=xq2sFOViLDljKawy', '_blank')">Start Learning</button>
+            <i class="fab fa-php"></i>
+            <h3>PHP</h3>
+            <p>Master PHP for web development.</p>
+            <button onclick="window.open('https://youtu.be/V821daR3UcM', '_blank')">Start Learning</button>
         </div>
         <div class="card">
+            <i class="fas fa-database"></i>
             <h3>SQL</h3>
-            <p>Learn the structure of web pages using HTML.</p>
-            <button onclick="window.open('https://youtu.be/hlGoQC332VM?si=mqAN1s3z-nowSF69', '_blank')">Start Learning</button>
+            <p>Learn database management using SQL.</p>
+            <button onclick="window.open('https://youtu.be/hlGoQC332VM', '_blank')">Start Learning</button>
         </div>
         <div class="card">
-            <h3>MangoDB</h3>
-            <p>Style web pages with CSS.</p>
-            <button onclick="window.open('https://youtube.com/playlist?list=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA&si=JE3GwJzhMSJn0ZOZ', '_blank')">Start Learning</button>
+            <i class="fab fa-github"></i>
+            <h3>Git & GitHub</h3>
+            <p>Learn version control with Git and GitHub.</p>
+            <button onclick="window.open('https://youtu.be/Ez8F0nW6S-w', '_blank')">Start Learning</button>
         </div>
-        <div class="card">
-            <h3>GIT & GitHub</h3>
-            <p>Learn GIT for programming.</p>
-            <button onclick="window.open('https://youtu.be/Ez8F0nW6S-w?si=oY-AcUcxDviQ_L2K', '_blank')">Start Learning</button>
-        </div>
-</section>
-    <!-- footer -->
-<!--     <footer>
-        <p>&copy; 2024 Your Website. All Rights Reserved.</p>
-        <div class="footer-social-links">
-            <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a> |
-            <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a> |
-            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
-        </div>
-
-    </footer> -->
+    </div>
+</section>    
     <script>
         const toggleMenu = document.querySelector('.toggle-menu');
         const navMenu = document.querySelector('.nav-menu');
